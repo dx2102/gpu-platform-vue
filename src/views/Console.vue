@@ -1,9 +1,11 @@
 <template>
   <div class="flex h-full">
-    <div class="border-r-2 pr-1 border-primary/10">
+    <div class="min-w-64 border-r-2 pr-1 border-primary/10">
       <n-menu :options="menuOptions" :value="route.matched[1]?.path" />
     </div>
-    <RouterView></RouterView>
+    <div class="overflow-x-auto">
+      <RouterView></RouterView>
+    </div>
   </div>
 
 </template>
