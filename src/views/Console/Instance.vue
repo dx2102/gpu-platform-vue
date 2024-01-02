@@ -1,0 +1,3 @@
+<template>
+  Instance
+</template>
