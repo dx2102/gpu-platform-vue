@@ -4,17 +4,8 @@
 // Left: Home, Market
 // Right: Console, Account
 
-import { watch } from 'vue';
-import { computed } from 'vue';
 import { useRoute } from 'vue-router'
 
-const links = [
-  { name: 'Home', path: '/' },
-  { name: 'Market', path: '/market' },
-  { name: 'Console', path: '/console' },
-  { name: 'Account', path: '/account' },
-]
-const leftCount = 2
 let route = useRoute()
 
 </script>
@@ -30,7 +21,7 @@ let route = useRoute()
       Market
     </RouterLink>
     <div class="mx-auto"></div>
-    <RouterLink to="/console" :class="{'text-primary': route.matched[0].path === '/console'}" class="hover:text-primary" >
+    <RouterLink to="/console/image" :class="{'text-primary': route.matched[0]?.path === '/console'}" class="hover:text-primary" >
       Console
     </RouterLink>
     <RouterLink to="/account" :class="{'text-primary': ['account', 'login', 'signup'].includes(route.name)}" class="hover:text-primary" >
