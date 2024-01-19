@@ -9,6 +9,7 @@
       :columns="columns"
       :data="data"
       scroll-x=1000
+      :scrollbar-props="{ trigger: 'none' }"
     />
   </div>
 </template>

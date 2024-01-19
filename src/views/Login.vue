@@ -3,7 +3,7 @@
   <div class="flex items-center justify-center grow bg-gray-100 text-lg">
     <div class="bg-white p-8 rounded-lg shadow w-full max-w-md flex flex-col">
       <h2 class="text-2xl mb-3">Login</h2>
-      <n-form size="large" :model="model" :rules="rules">
+      <n-form size="large" :model="model">
         <n-form-item label="Username">
           <n-input v-model:value="model.username" />
         </n-form-item>
@@ -11,10 +11,10 @@
           <n-input v-model:value="model.password" type="password" />
         </n-form-item>
       </n-form>
-      <button class="grow bg-primary text-white p-2 rounded mb-2" @click="login">
+      <n-button type="primary" @click="handle">
         Login
-      </button>
-      <div class="text-center text-base">
+      </n-button>
+      <div class="text-center text-base mt-3">
         Don't have an account?
         <RouterLink to="/signup" class="text-primary">Signup</RouterLink>
       </div>
@@ -23,14 +23,20 @@
 </template>
 
 <script setup>
-const model = reactive({
-  username: 'nyush',
-  password: 'nyush',
-})
-const rules = {}
 
-function login() {
-  console.log(model)
+import { http } from "@/utils/http";
+
+const model = reactive({
+  username: '',
+  password: '',
+})
+
+function handle() {
+  http.post('/login', model).then(res => {
+    http.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
+    console.log(res.data.token)
+    localStorage.setItem('token', res.data.token)
+  })
 }
 
 

@@ -32,14 +32,19 @@ const menuOptions = [
     icon: renderIcon(BookIcon)
   },
   {
+    label: () => h(RouterLink, {to: {path: '/console/image'}}, { default: () => 'Images' }),
+    key: '/console/image',
+    icon: renderIcon(BookIcon)
+  },
+  {
     label: () => h(RouterLink, {to: {path: '/console/file-store'}}, { default: () => 'File store' }),
     key: '/console/file-store',
     icon: renderIcon(BookIcon)
   },
   {
-    label: () => h(RouterLink, {to: {path: '/console/image'}}, { default: () => 'Images' }),
-    key: '/console/image',
+    label: () => h(RouterLink, {to: {path: '/console/history'}}, { default: () => 'History' }),
+    key: '/console/history',
     icon: renderIcon(BookIcon)
-  },
+  }
 ]
 </script>

@@ -5,8 +5,14 @@
 // Right: Console, Account
 
 import { useRoute } from 'vue-router'
+import { useMessage } from 'naive-ui'
 
 let route = useRoute()
+window.message = useMessage();
+window.onerror = e => {
+  message.error(JSON.stringify(e));
+};
+
 
 </script>
 

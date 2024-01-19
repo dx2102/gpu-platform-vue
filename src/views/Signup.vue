@@ -14,7 +14,7 @@
           <n-input v-model:value="model.reenteredPassword" type="password" />
         </n-form-item>
       </n-form>
-      <button class="grow bg-primary text-white p-2 rounded mb-2" @click="signup">
+      <button class="grow bg-primary text-white p-2 rounded mb-2" @click="handle">
         Signup
       </button>
       <div class="text-center text-base">
@@ -26,6 +26,9 @@
 </template>
 
 <script setup>
+import { useMessage } from 'naive-ui'
+const message = useMessage()
+
 const model = reactive({
   username: 'nyush',
   password: 'nyush',
@@ -33,8 +36,8 @@ const model = reactive({
 })
 const rules = {}
 
-function signup() {
-  console.log(model)
+function handle() {
+  message.success(JSON.stringify(model))
 }
 
 

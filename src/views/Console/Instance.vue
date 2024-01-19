@@ -32,6 +32,7 @@
       :columns="columns"
       :data="data"
       scroll-x=1000
+      :scrollbar-props="{ trigger: 'none' }"
     />
   </div>
 </template>
@@ -44,10 +45,14 @@ const data = [
   {
     'Instance ID/Name': 'i-1234567890abcdef0',
     'State': 'Running',
-    'Spec': '1x RTX 3090',
-    'Local Drive': '1x 1TB SSD',
+    'Spec': '1*RTX 3090',
+    // Details
+    'Local Drive': '256GB',
     'Release time': '2021-10-01 12:00:00',
-    'SSH command': 'ssh root@192.168.0.1',
+    // ssh -p 25694 root@connect.westa.seetacloud.com
+    // nn3AlrgbhXyo
+    // Tools: Jupyter Lab
+    'SSH command': 'ssh -p 25694 root@connect.westa.seetacloud.com',
     'Operations': 'Stop'
   }
 ]
