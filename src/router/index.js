@@ -6,8 +6,9 @@ import Home from '@/views/Home.vue'
 import Market from '@/views/Market.vue'
 import Console from '@/views/Console.vue'
   import Instance from '@/views/Console/Instance.vue'
-  import FileStore from '@/views/Console/FileStore.vue'
   import Image from '@/views/Console/Image.vue'
+  import FileStore from '@/views/Console/FileStore.vue'
+  import History from '@/views/Console/History.vue'
 import Account from '@/views/Account.vue'
 import Login from '@/views/Login.vue'
 import Signup from '@/views/Signup.vue'
@@ -46,6 +47,11 @@ const router = createRouter({
           path: 'image',
           name: 'image',
           component: Image
+        },
+        {
+          path: 'history',
+          name: 'history',
+          component: History
         },
       ]
     },

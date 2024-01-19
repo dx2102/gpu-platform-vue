@@ -34,15 +34,21 @@ const theme = {
   }
 }
 
+
+
+
+
 </script>
 
 <template>
   <NConfigProvider class="text-base" :theme-overrides="theme" :locale="enUS" :date-locale="dateEnUS">
     <NThemeEditor>
-      <div class="flex flex-col h-screen">
-        <NavBar />
-        <RouterView />
-      </div>
+      <NMessageProvider>
+        <div class="flex flex-col h-screen">
+          <NavBar />
+          <RouterView />
+        </div>
+      </NMessageProvider>
     </NThemeEditor>
   </NConfigProvider>
 </template>
