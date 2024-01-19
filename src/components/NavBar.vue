@@ -1,8 +1,6 @@
 <script setup>
 // a tailwind navbar
 
-// Left: Home, Market
-// Right: Console, Account
 
 import { useRoute } from 'vue-router'
 import { useMessage } from 'naive-ui'
@@ -23,8 +21,8 @@ window.onerror = e => {
     <RouterLink to="/" :class="{'text-primary': route.path === '/'}" class="hover:text-primary" >
       Home
     </RouterLink>
-    <RouterLink to="/market" :class="{'text-primary': route.path === '/market'}" class="hover:text-primary" >
-      Market
+    <RouterLink to="/create" :class="{'text-primary': route.path === '/create'}" class="hover:text-primary" >
+      Create
     </RouterLink>
     <div class="mx-auto"></div>
     <RouterLink to="/console/image" :class="{'text-primary': route.matched[0]?.path === '/console'}" class="hover:text-primary" >

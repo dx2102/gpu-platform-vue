@@ -25,6 +25,8 @@
 <script setup>
 
 import { http } from "@/utils/http";
+import { useRouter } from "vue-router";
+const router = useRouter()
 
 const model = reactive({
   username: '',
@@ -36,6 +38,7 @@ function handle() {
     http.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
     console.log(res.data.token)
     localStorage.setItem('token', res.data.token)
+    router.push('/create')
   })
 }
 

@@ -26,18 +26,26 @@
 </template>
 
 <script setup>
-import { useMessage } from 'naive-ui'
-const message = useMessage()
+import { http } from "@/utils/http";
+import { useRouter } from "vue-router";
+const router = useRouter()
+
 
 const model = reactive({
-  username: 'nyush',
-  password: 'nyush',
-  reenteredPassword: 'nyush'
+  username: '',
+  password: '',
+  reenteredPassword: ''
 })
 const rules = {}
 
 function handle() {
-  message.success(JSON.stringify(model))
+  if (model.password !== model.reenteredPassword) {
+    window.message.error('Passwords do not match')
+    return
+  }
+  http.post('/signup', model).then(res => {
+    router.push('/')
+  })
 }
 
 

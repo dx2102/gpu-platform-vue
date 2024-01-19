@@ -40,7 +40,7 @@ watch(logResponse, (newVal) => {
       <n-button @click="http.get('/ping')" type="primary" size="large">Ping server ({{ backendLocation }}/ping)</n-button>
       <n-button @click="http.get('/whoami')" type="primary" size="large">Whoami (Checks whether you have logged in.)</n-button>
       <div class="flex gap-2 items-center">
-        Display successful API calls:
+        Pop messages for successful API call.
         <n-switch size="large" v-model:value="logResponse" />
       </div>
     </div>

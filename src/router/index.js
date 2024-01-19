@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 // Home Market Console Account Login Signup
 
 import Home from '@/views/Home.vue'
-import Market from '@/views/Market.vue'
+import Create from '@/views/Create.vue'
 import Console from '@/views/Console.vue'
   import Instance from '@/views/Console/Instance.vue'
   import Image from '@/views/Console/Image.vue'
@@ -24,9 +24,9 @@ const router = createRouter({
       component: Home
     },
     {
-      path: '/market',
-      name: 'market',
-      component: Market
+      path: '/create',
+      name: 'create',
+      component: Create
     },
     {
       path: '/console',
