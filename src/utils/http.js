@@ -20,6 +20,8 @@ export const http = axios.create({
   }
 });
 
+window.http = http
+
 http.interceptors.request.use(config => {
   config.metadata = { startTime: new Date() };
   return config;
@@ -37,12 +39,16 @@ http.interceptors.response.use(response => {
 }, error => {
   // errors are logged regardless of config
   const rtt = new Date() - error.config.metadata.startTime;
+  if (!error.response) {
+    message.error(`(${rtt} ms) ${error.message}`)
+    return Promise.reject(error);
+  }
   if (error.response.status === 403) {
     router.push('/login')
     message.error('Please login first')
-  } else {
-    message.error(`(${rtt} ms) ${JSON.stringify(error.response.data)}`)
+    return Promise.reject(error);
   }
+  message.error(`(${rtt} ms) ${JSON.stringify(error.response.data)}`)
   return Promise.reject(error);
 });
 
