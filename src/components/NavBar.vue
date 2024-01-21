@@ -24,6 +24,9 @@ window.onerror = e => {
     <RouterLink to="/create" :class="{'text-primary': route.path === '/create'}" class="hover:text-primary" >
       Create
     </RouterLink>
+    <RouterLink to="/create" :class="{'text-primary': route.path === '/help'}" class="hover:text-primary" >
+      Help
+    </RouterLink>
     <div class="mx-auto"></div>
     <RouterLink to="/console/instance" :class="{'text-primary': route.matched[0]?.path === '/console'}" class="hover:text-primary" >
       Console
