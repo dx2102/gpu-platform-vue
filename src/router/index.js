@@ -4,11 +4,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import Home from '@/views/Home.vue'
 import Create from '@/views/Create.vue'
+import Help from '@/views/Help.vue'
 import Console from '@/views/Console.vue'
   import Instance from '@/views/Console/Instance.vue'
   import Image from '@/views/Console/Image.vue'
   import FileStore from '@/views/Console/FileStore.vue'
   import History from '@/views/Console/History.vue'
+  import Balance from '@/views/Console/Balance.vue'
 import Account from '@/views/Account.vue'
 import Login from '@/views/Login.vue'
 import Signup from '@/views/Signup.vue'
@@ -27,6 +29,11 @@ const router = createRouter({
       path: '/create',
       name: 'create',
       component: Create
+    },
+    {
+      path: '/help',
+      name: 'help',
+      component: Help
     },
     {
       path: '/console',
@@ -52,6 +59,11 @@ const router = createRouter({
           path: 'history',
           name: 'history',
           component: History
+        },
+        {
+          path: 'balance',
+          name: 'balance',
+          component: Balance
         },
       ]
     },

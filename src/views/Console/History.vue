@@ -1,4 +1,4 @@
 <template>
   History <br>
-  Not implemented
+  View user history
 </template>
