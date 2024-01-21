@@ -1,3 +1,4 @@
 <template>
-  history
+  History <br>
+  Not implemented
 </template>

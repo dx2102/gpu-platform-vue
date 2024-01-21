@@ -15,11 +15,9 @@ export const http = axios.create({
   baseURL: localStorage.getItem('backendLocation'),
   timeout: 1000,
   logResponse: true, // custom config attribute
-  headers: {
-    'Authorization': `Bearer ${localStorage.getItem('token')}`,
-  }
 });
 
+http.defaults.headers.common['Authorization'] = localStorage.getItem('token')
 window.http = http
 
 http.interceptors.request.use(config => {
@@ -32,23 +30,33 @@ http.interceptors.request.use(config => {
 http.interceptors.response.use(response => {
   if (response.config.logResponse) {
     // (34 ms) { ... }
+    console.log(response.config.headers.Authorization)
     const rtt = new Date() - response.config.metadata.startTime;
-    message.success(`(${rtt} ms) ${JSON.stringify(response.data)}`)
+    message.success(
+      `(${rtt} ms) ${JSON.stringify(response.data)}`,
+      {
+        closable: true,
+      }
+    )
   }
   return response;
 }, error => {
   // errors are logged regardless of config
-  const rtt = new Date() - error.config.metadata.startTime;
+  console.log(error)
+  const rtt = new Date() - error.config.metadata.startTime
   if (!error.response) {
     message.error(`(${rtt} ms) ${error.message}`)
-    return Promise.reject(error);
-  }
-  if (error.response.status === 403) {
+  } else if (error.response.status === 401) {
     router.push('/login')
-    message.error('Please login first')
-    return Promise.reject(error);
+    message.error('401. Validation failed. Please login first. ')
+  } else if (error.response.status === 403) {
+    message.error('403. You have logged in, but your account is not allowed to access this resource.')
+  } else if (error.response.data.detail) {
+    // if response is like { detail: "..." }
+    message.error(`(${rtt} ms) ${error.response.data.detail}`)
+  } else {
+    message.error(`(${rtt} ms) ${JSON.stringify(error.response.data)}`)
   }
-  message.error(`(${rtt} ms) ${JSON.stringify(error.response.data)}`)
   return Promise.reject(error);
 });
 

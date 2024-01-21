@@ -1,11 +1,11 @@
 <script setup>
-import { RouterView } from 'vue-router'
+import { RouterView, useRouter } from 'vue-router'
 import NavBar from '@/components/NavBar.vue'
 
 import { NThemeEditor } from 'naive-ui'
 import { zhCN, dateZhCN, enUS, dateEnUS } from 'naive-ui'
 
-
+const router = useRouter()
 const theme = {
   "common": {
     "borderRadius": "0.375rem",
@@ -34,7 +34,9 @@ const theme = {
   }
 }
 
-
+if (router.path === '/') {
+  router.push('/')
+}
 
 
 

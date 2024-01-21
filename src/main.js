@@ -19,3 +19,4 @@ meta.name = 'naive-ui-style'
 document.head.appendChild(meta)
 
 app.mount('#app')
+

@@ -44,7 +44,10 @@ function handle() {
     return
   }
   http.post('/signup', model).then(res => {
-    router.push('/')
+    console.log(res.data.token)
+    http.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
+    localStorage.setItem('token', res.data.token)
+    router.push('/create')
   })
 }
 
