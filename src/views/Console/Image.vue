@@ -4,6 +4,8 @@
       <div class="text-xl">Storage usage:  </div>
       <span class="text-2xl">0.0GB</span>
     </div>
+
+    Not implemented
     
     <NDataTable
       :columns="columns"

@@ -4,30 +4,12 @@
       <NButton type="primary">
         <RouterLink to="/create">Apply for new instances</RouterLink>
       </NButton>
-      <NButton type="primary" class="ml-4">
+      <NButton type="primary" class="ml-4" @click="fetchContainers">
         Refresh
       </NButton>
     </div>
 
-    Version 1:
-    <n-table>
-      <thead>
-        <tr>
-          <th>Instance ID/Name</th>
-          <th>State</th>
-          <th>Spec</th>
-          <th>Local Drive</th>
-          <th>Release time</th>
-          <th>SSH command</th>
-          <th>Operations</th>
-        </tr>
-      </thead>
-      <tbody>
-        ...
-      </tbody>
-    </n-table>
-
-    Version 2:
+    (You may need to refresh to see the jupyter server url since it takes some time to start the server.)
     <NDataTable
       :columns="columns"
       :data="data"

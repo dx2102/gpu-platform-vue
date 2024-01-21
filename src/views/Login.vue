@@ -35,8 +35,8 @@ const model = reactive({
 
 function handle() {
   http.post('/login', model).then(res => {
+    console.log(model.username, res.data.token)
     http.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
-    console.log(res.data.token)
     localStorage.setItem('token', res.data.token)
     router.push('/create')
   })

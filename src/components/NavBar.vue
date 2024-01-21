@@ -25,7 +25,7 @@ window.onerror = e => {
       Create
     </RouterLink>
     <div class="mx-auto"></div>
-    <RouterLink to="/console/image" :class="{'text-primary': route.matched[0]?.path === '/console'}" class="hover:text-primary" >
+    <RouterLink to="/console/instance" :class="{'text-primary': route.matched[0]?.path === '/console'}" class="hover:text-primary" >
       Console
     </RouterLink>
     <RouterLink to="/account" :class="{'text-primary': ['account', 'login', 'signup'].includes(route.name)}" class="hover:text-primary" >
