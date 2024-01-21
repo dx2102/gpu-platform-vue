@@ -45,6 +45,11 @@ const menuOptions = [
     label: () => h(RouterLink, {to: {path: '/console/history'}}, { default: () => 'History' }),
     key: '/console/history',
     icon: renderIcon(BookIcon)
+  },
+  {
+    label: () => h(RouterLink, {to: {path: '/console/balance'}}, { default: () => 'Balance' }),
+    key: '/console/balance',
+    icon: renderIcon(BookIcon)
   }
 ]
 </script>

@@ -8,16 +8,12 @@ watch(backendLocation, (newVal) => {
 });
 
 let logResponse = ref(http.defaults.logResponse);
-watch(logResponse, (newVal) => {
+watch (logResponse, (newVal) => {
   // change http.config.logResponse
   http.defaults.logResponse = newVal;
 });
 
 </script>
-
-
-
-
 
 
 
