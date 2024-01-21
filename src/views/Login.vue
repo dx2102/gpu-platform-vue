@@ -16,7 +16,7 @@
       </n-button>
       <div class="text-center text-base mt-3">
         Don't have an account?
-        <RouterLink to="/signup" class="text-primary">Signup</RouterLink>
+        <RouterLink to="/signup" class="text-primary">Sign up</RouterLink>
       </div>
     </div>
   </div>
