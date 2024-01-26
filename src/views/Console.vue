@@ -27,7 +27,7 @@ function renderIcon (icon) {
 
 const menuOptions = [
   {
-    label: () => h(RouterLink, {to: {path: '/console/instance'}}, { default: () => 'Container instances' }),
+    label: () => h(RouterLink, {to: {path: '/console/instance'}}, { default: () => 'Instances' }),
     key: '/console/instance',
     icon: renderIcon(BookIcon)
   },
@@ -37,7 +37,7 @@ const menuOptions = [
     icon: renderIcon(BookIcon)
   },
   {
-    label: () => h(RouterLink, {to: {path: '/console/file-store'}}, { default: () => 'File store' }),
+    label: () => h(RouterLink, {to: {path: '/console/file-store'}}, { default: () => 'File Store' }),
     key: '/console/file-store',
     icon: renderIcon(BookIcon)
   },
