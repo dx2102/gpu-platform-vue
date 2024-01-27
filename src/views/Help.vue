@@ -2,21 +2,7 @@
 import router from '@/router';
 import { http } from '@/utils/http'
 
-let resources = ref([])
 
-onMounted(async () => {
-  http.get('/resources').then((res) => {
-    resources.value = [res.data]
-    window.data = res.data
-  })
-})
-
-function handle() {
-  http.post('/containers').then((res) => {
-    // jump to container page
-    router.push('/console/instance')
-  })
-}
 
 </script>
 
