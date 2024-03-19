@@ -40,6 +40,16 @@ function handle() {
     localStorage.setItem('token', res.data.token)
     router.push('/create')
   })
+
+  /* 
+  let res = await http.post('/login', model)
+
+  console.log(model.username, res.data.token)
+  http.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
+  localStorage.setItem('token', res.data.token)
+  router.push('/create')
+  
+  */
 }
 
 
